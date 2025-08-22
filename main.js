@@ -233,6 +233,24 @@ class LoadingManager {
   }
 }
 
+// WhatsApp Function
+function openWhatsApp() {
+  const phoneNumber = '6283119226089'; // Nomor WhatsApp dengan kode negara Indonesia
+  const message = encodeURIComponent('Halo! Saya tertarik dengan produk kerajinan eceng gondok di Nusantara Eceng. Mohon informasinya.');
+  const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+  
+  // Open WhatsApp in new tab
+  window.open(whatsappURL, '_blank');
+  
+  // Track interaction (for analytics)
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'click', {
+      'event_category': 'WhatsApp',
+      'event_label': 'Contact Button'
+    });
+  }
+}
+
 // Smooth Scrolling Function
 function scrollToSection(sectionId) {
   const element = document.getElementById(sectionId);
@@ -507,9 +525,40 @@ function setupErrorHandling() {
   });
 }
 
+// WhatsApp Button Animation
+function setupWhatsAppAnimation() {
+  const whatsappFloat = document.getElementById('whatsappFloat');
+  
+  // Show tooltip on hover
+  if (whatsappFloat) {
+    const whatsappBtn = whatsappFloat.querySelector('.whatsapp-button');
+    
+    whatsappBtn.addEventListener('mouseenter', () => {
+      whatsappFloat.querySelector('.whatsapp-tooltip').style.opacity = '1';
+    });
+    
+    whatsappBtn.addEventListener('mouseleave', () => {
+      whatsappFloat.querySelector('.whatsapp-tooltip').style.opacity = '0';
+    });
+    
+    // Add keyboard accessibility
+    whatsappBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openWhatsApp();
+      }
+    });
+    
+    // Make button focusable
+    whatsappBtn.setAttribute('tabindex', '0');
+    whatsappBtn.setAttribute('role', 'button');
+    whatsappBtn.setAttribute('aria-label', 'Chat dengan kami di WhatsApp');
+  }
+}
+
 // Initialize Everything
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('🌿 Nusantara Eceng Marketplace with Bootstrap loaded!');
+  console.log('🌿 Nusantara Eceng Marketplace with Bootstrap & WhatsApp loaded!');
   
   // Initialize all functionality
   setupProductFiltering();
@@ -521,6 +570,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupSearch();
   setupPerformanceMonitoring();
   setupErrorHandling();
+  setupWhatsAppAnimation();
   
   // Initialize Bootstrap tooltips and popovers
   const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
@@ -552,6 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
 window.cart = cart;
 window.scrollToSection = scrollToSection;
 window.closeSuccessModal = closeSuccessModal;
+window.openWhatsApp = openWhatsApp;
 
 // Service Worker Registration (for future PWA support)
 if ('serviceWorker' in navigator) {

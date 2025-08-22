@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struk Pembayaran - Nusantara Eceng</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            
+            body {
+                font-size: 12px;
+            }
+            
+            .receipt-container {
+                max-width: none;
+                margin: 0;
+                box-shadow: none;
+                border: none;
+            }
+        }
+        
+        .receipt-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border: 1px solid #e9ecef;
+        }
+        
+        .receipt-header {
+            background: linear-gradient(135deg, #8B4513, #A0522D);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .receipt-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+        
+        .receipt-body {
+            padding: 2rem;
+        }
+        
+        .receipt-section {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .receipt-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .item-row {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f8f9fa;
+        }
+        
+        .item-row:last-child {
+            border-bottom: none;
+        }
+        
+        .total-row {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        
+        .qr-code {
+            width: 120px;
+            height: 120px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8f9fa"/><text x="50" y="55" text-anchor="middle" font-size="8" fill="%236c757d">QR Code</text></svg>') center/contain no-repeat;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            margin: 0 auto;
+        }
+        
+        .signature-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+        }
+        
+        .signature-box {
+            text-align: center;
+            width: 200px;
+        }
+        
+        .signature-line {
+            border-top: 1px solid #000;
+            margin-top: 3rem;
+            padding-top: 0.5rem;
+        }
+        
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 6rem;
+            color: rgba(139, 69, 19, 0.05);
+            font-weight: bold;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .receipt-footer {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            text-align: center;
+            border-top: 2px dashed #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <div class="receipt-container position-relative">
+        <!-- Watermark -->
+        <div class="watermark">NUSANTARA ECENG</div>
+        
+        <!-- Receipt Header -->
+        <div class="receipt-header">
+            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=60&h=60&fit=crop&crop=center" alt="Logo" class="receipt-logo">
+            <h3 class="mb-2">NUSANTARA ECENG</h3>
+            <p class="mb-1">Marketplace Kerajinan Eceng Gondok Indonesia</p>
+            <p class="mb-0 small">www.nusantaraeceng.com | info@nusantaraeceng.com</p>
+        </div>
+
+        <!-- Receipt Body -->
+        <div class="receipt-body">
+            <!-- Transaction Info -->
+            <div class="receipt-section">
+                <div class="row">
+                    <div class="col-6">
+                        <h5 class="text-primary mb-3">STRUK PEMBAYARAN</h5>
+                        <table class="table table-borderless table-sm">
+                            <tr>
+                                <td class="fw-semibold">No. Order:</td>
+                                <td id="orderNumber">ORD-20250115-001</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">Tanggal:</td>
+                                <td id="orderDate">15 Januari 2025, 14:30 WIB</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">Metode Bayar:</td>
+                                <td id="paymentMethod">QRIS</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">Status:</td>
+                                <td><span class="badge bg-success">BERHASIL</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-6 text-end">
+                        <div class="qr-code"></div>
+                        <p class="small text-muted mt-2">Scan untuk verifikasi</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Info -->
+            <div class="receipt-section">
+                <h6 class="text-primary mb-3">INFORMASI PELANGGAN</h6>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-borderless table-sm">
+                            <tr>
+                                <td class="fw-semibold">Nama:</td>
+                                <td id="customerName">Ahmad Rizki</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">Telepon:</td>
+                                <td id="customerPhone">+62 812-3456-7890</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">Email:</td>
+                                <td id="customerEmail">ahmad.rizki@email.com</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="fw-semibold mb-1">Alamat Pengiriman:</p>
+                        <p id="shippingAddress" class="small">
+                            Jl. Sudirman No. 123, RT 02/RW 05<br>
+                            Kelurahan Menteng<br>
+                            Jakarta Pusat, DKI Jakarta 10310
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Items -->
+            <div class="receipt-section">
+                <h6 class="text-primary mb-3">DETAIL PESANAN</h6>
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Produk</th>
+                                <th>Pengrajin</th>
+                                <th class="text-center">Qty</th>
+                                <th class="text-end">Harga</th>
+                                <th class="text-end">Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderItems">
+                            <!-- Items will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="receipt-section">
+                <h6 class="text-primary mb-3">RINGKASAN PEMBAYARAN</h6>
+                <div class="row">
+                    <div class="col-md-6 ms-auto">
+                        <table class="table table-borderless table-sm">
+                            <tr>
+                                <td>Subtotal Produk:</td>
+                                <td class="text-end" id="subtotalAmount">Rp 150.000</td>
+                            </tr>
+                            <tr>
+                                <td>Ongkos Kirim:</td>
+                                <td class="text-end" id="shippingAmount">Rp 15.000</td>
+                            </tr>
+                            <tr>
+                                <td>Biaya Admin:</td>
+                                <td class="text-end" id="adminFee">Rp 2.500</td>
+                            </tr>
+                            <tr>
+                                <td>Pajak (PPN 0%):</td>
+                                <td class="text-end" id="taxAmount">Rp 0</td>
+                            </tr>
+                            <tr class="border-top">
+                                <td class="fw-bold">TOTAL PEMBAYARAN:</td>
+                                <td class="text-end fw-bold text-success fs-5" id="totalAmount">Rp 167.500</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shipping Info -->
+            <div class="receipt-section">
+                <h6 class="text-primary mb-3">INFORMASI PENGIRIMAN</h6>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-borderless table-sm">
+                            <tr>
+                                <td class="fw-semibold">Ekspedisi:</td>
+                                <td id="courier">JNE Reguler</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">Estimasi:</td>
+                                <td id="estimatedDelivery">3-5 hari kerja</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">No. Resi:</td>
+                                <td id="trackingNumber">-</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="alert alert-info alert-sm">
+                            <i class="bi bi-info-circle me-2"></i>
+                            <small>
+                                Nomor resi akan dikirimkan via SMS/WhatsApp setelah paket diambil kurir.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terms and Conditions -->
+            <div class="receipt-section">
+                <h6 class="text-primary mb-3">SYARAT & KETENTUAN</h6>
+                <ul class="small">
+                    <li>Struk ini adalah bukti pembayaran yang sah</li>
+                    <li>Komplain hanya dilayani maksimal 7 hari setelah barang diterima</li>
+                    <li>Retur barang hanya berlaku untuk produk yang cacat atau tidak sesuai pesanan</li>
+                    <li>Biaya retur ditanggung pembeli jika bukan kesalahan penjual</li>
+                    <li>Untuk bantuan hubungi Customer Service: +62 831-1922-6089</li>
+                </ul>
+            </div>
+
+            <!-- Signature Section -->
+            <div class="signature-section no-print">
+                <div class="signature-box">
+                    <p class="mb-0 fw-semibold">Penerima</p>
+                    <div class="signature-line">
+                        <p class="mb-0 small">Tanda Tangan & Nama Jelas</p>
+                    </div>
+                </div>
+                <div class="signature-box">
+                    <p class="mb-0 fw-semibold">Kurir</p>
+                    <div class="signature-line">
+                        <p class="mb-0 small">Tanda Tangan & Nama Jelas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Receipt Footer -->
+        <div class="receipt-footer">
+            <p class="mb-2 fw-semibold">Terima kasih telah berbelanja di Nusantara Eceng!</p>
+            <p class="mb-2 small">
+                Dukung pengrajin lokal, lestarikan budaya bangsa
+            </p>
+            <p class="mb-0 small text-muted">
+                Struk ini dicetak pada: <span id="printDate"></span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Print Controls -->
+    <div class="container mt-4 no-print">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <button class="btn btn-primary me-2" onclick="window.print()">
+                    <i class="bi bi-printer me-2"></i>Cetak Struk
+                </button>
+                <button class="btn btn-outline-secondary me-2" onclick="downloadPDF()">
+                    <i class="bi bi-download me-2"></i>Download PDF
+                </button>
+                <button class="btn btn-outline-primary" onclick="shareReceipt()">
+                    <i class="bi bi-share me-2"></i>Bagikan
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class ReceiptGenerator {
+            constructor() {
+                this.orderData = this.getOrderData();
+                this.populateReceipt();
+                this.setPrintDate();
+            }
+
+            getOrderData() {
+                // Get order data from URL parameters or localStorage
+                const urlParams = new URLSearchParams(window.location.search);
+                const orderId = urlParams.get('order');
+                
+                // Mock order data - in real app, fetch from API
+                return {
+                    id: orderId || 'ORD-20250115-001',
+                    date: new Date().toLocaleString('id-ID', {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        timeZone: 'Asia/Jakarta',
+                        timeZoneName: 'short'
+                    }),
+                    customer: {
+                        name: 'Ahmad Rizki',
+                        phone: '+62 812-3456-7890',
+                        email: 'ahmad.rizki@email.com',
+                        address: 'Jl. Sudirman No. 123, RT 02/RW 05\nKelurahan Menteng\nJakarta Pusat, DKI Jakarta 10310'
+                    },
+                    items: [
+                        {
+                            name: 'Tas Anyam Premium',
+                            artisan: 'Ibu Sari - Yogyakarta',
+                            quantity: 1,
+                            price: 150000,
+                            subtotal: 150000
+                        }
+                    ],
+                    payment: {
+                        method: 'QRIS',
+                        subtotal: 150000,
+                        shipping: 15000,
+                        adminFee: 2500,
+                        tax: 0,
+                        total: 167500
+                    },
+                    shipping: {
+                        courier: 'JNE Reguler',
+                        estimated: '3-5 hari kerja',
+                        trackingNumber: '-'
+                    }
+                };
+            }
+
+            populateReceipt() {
+                // Order info
+                document.getElementById('orderNumber').textContent = this.orderData.id;
+                document.getElementById('orderDate').textContent = this.orderData.date;
+                document.getElementById('paymentMethod').textContent = this.orderData.payment.method;
+
+                // Customer info
+                document.getElementById('customerName').textContent = this.orderData.customer.name;
+                document.getElementById('customerPhone').textContent = this.orderData.customer.phone;
+                document.getElementById('customerEmail').textContent = this.orderData.customer.email;
+                document.getElementById('shippingAddress').innerHTML = this.orderData.customer.address.replace(/\n/g, '<br>');
+
+                // Order items
+                const orderItems = document.getElementById('orderItems');
+                orderItems.innerHTML = this.orderData.items.map(item => `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td class="small text-muted">${item.artisan}</td>
+                        <td class="text-center">${item.quantity}</td>
+                        <td class="text-end">Rp ${item.price.toLocaleString('id-ID')}</td>
+                        <td class="text-end">Rp ${item.subtotal.toLocaleString('id-ID')}</td>
+                    </tr>
+                `).join('');
+
+                // Payment summary
+                document.getElementById('subtotalAmount').textContent = `Rp ${this.orderData.payment.subtotal.toLocaleString('id-ID')}`;
+                document.getElementById('shippingAmount').textContent = `Rp ${this.orderData.payment.shipping.toLocaleString('id-ID')}`;
+                document.getElementById('adminFee').textContent = `Rp ${this.orderData.payment.adminFee.toLocaleString('id-ID')}`;
+                document.getElementById('taxAmount').textContent = `Rp ${this.orderData.payment.tax.toLocaleString('id-ID')}`;
+                document.getElementById('totalAmount').textContent = `Rp ${this.orderData.payment.total.toLocaleString('id-ID')}`;
+
+                // Shipping info
+                document.getElementById('courier').textContent = this.orderData.shipping.courier;
+                document.getElementById('estimatedDelivery').textContent = this.orderData.shipping.estimated;
+                document.getElementById('trackingNumber').textContent = this.orderData.shipping.trackingNumber;
+            }
+
+            setPrintDate() {
+                const now = new Date().toLocaleString('id-ID', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                document.getElementById('printDate').textContent = now;
+            }
+        }
+
+        // Initialize receipt
+        document.addEventListener('DOMContentLoaded', () => {
+            new ReceiptGenerator();
+        });
+
+        // Global functions
+        function downloadPDF() {
+            // In a real app, you'd generate a proper PDF
+            alert('Fitur download PDF akan segera tersedia!');
+        }
+
+        function shareReceipt() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Struk Pembayaran - Nusantara Eceng',
+                    text: 'Struk pembayaran pesanan Anda',
+                    url: window.location.href
+                });
+            } else {
+                // Fallback to copy link
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Link struk berhasil disalin!');
+                });
+            }
+        }
+
+        // Auto-print when loaded from checkout
+        if (document.referrer.includes('checkout.html')) {
+            setTimeout(() => {
+                window.print();
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
