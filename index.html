@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nusantara Eceng - Marketplace Kerajinan Eceng Gondok Indonesia</title>
+
+    <meta name="description" content="Platform digital terpercaya untuk kerajinan eceng gondok Indonesia. Dukung pengrajin lokal, lestarikan budaya bangsa dengan produk berkualitas tinggi." />
+    <meta name="author" content="Nusantara Eceng" />
+
+    <meta property="og:title" content="Nusantara Eceng - Marketplace Kerajinan Eceng Gondok Indonesia" />
+    <meta property="og:description" content="Platform digital terpercaya untuk kerajinan eceng gondok Indonesia. Dukung pengrajin lokal, lestarikan budaya bangsa dengan produk berkualitas tinggi." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=630&fit=crop" />
+    <meta property="og:image:alt" content="Kerajinan eceng gondok Indonesia di Nusantara Eceng" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Nusantara Eceng - Marketplace Kerajinan Eceng Gondok Indonesia" />
+    <meta name="twitter:description" content="Platform digital terpercaya untuk kerajinan eceng gondok Indonesia. Dukung pengrajin lokal, lestarikan budaya bangsa dengan produk berkualitas tinggi." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=630&fit=crop" />
+
+    <link rel="canonical" href="https://nusantaraeceng.com" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/style.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Nusantara Eceng",
+      "url": "https://nusantaraeceng.com",
+      "description": "Platform digital terpercaya untuk kerajinan eceng gondok Indonesia. Dukung pengrajin lokal, lestarikan budaya bangsa dengan produk berkualitas tinggi.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Nusantara Eceng"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#home">
+          <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=80&h=80&fit=crop&crop=center" alt="Nusantara Eceng Logo" class="logo-img me-2">
+          <span class="brand-text">Nusantara Eceng</span>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#products">Produk</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#artisans">Pengrajin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">Tentang</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Kontak</a>
+            </li>
+          </ul>
+          
+          <div class="d-flex align-items-center gap-2">
+            <button class="btn btn-outline-primary btn-sm">
+              <i class="bi bi-search"></i>
+            </button>
+            <button class="btn btn-outline-primary btn-sm position-relative" data-bs-toggle="modal" data-bs-target="#cartModal">
+              <i class="bi bi-cart3"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success cart-count">0</span>
+            </button>
+            <button class="btn btn-primary btn-sm">Masuk</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="row align-items-center min-vh-100 py-5">
+          <div class="col-lg-6" data-aos="fade-right">
+            <div class="hero-content">
+              <h1 class="display-4 fw-bold text-primary mb-4">Dari Kekayaan Alam Indonesia</h1>
+              <p class="lead text-muted mb-4">Marketplace terpercaya untuk kerajinan eceng gondok berkualitas tinggi. Dukung pengrajin lokal, lestarikan budaya bangsa.</p>
+              <div class="d-flex gap-3 flex-wrap">
+                <button class="btn btn-primary btn-lg" onclick="scrollToSection('products')">
+                  <i class="bi bi-bag-check me-2"></i>Jelajahi Produk
+                </button>
+                <button class="btn btn-outline-primary btn-lg">
+                  <i class="bi bi-person-plus me-2"></i>Jadi Mitra Pengrajin
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="hero-image-container">
+              <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop" alt="Kerajinan Eceng Gondok" class="img-fluid rounded-4 shadow-lg">
+              <div class="floating-badge">
+                <div class="badge bg-success fs-6 p-3">
+                  <i class="bi bi-award me-2"></i>Produk Berkualitas
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center mb-5">
+            <h2 class="display-5 fw-bold text-primary mb-3">Mengapa Memilih Nusantara Eceng?</h2>
+            <p class="lead text-muted">Platform terpercaya dengan berbagai keunggulan untuk pengalaman belanja terbaik</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-card h-100 p-4 text-center">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-shield-check text-primary"></i>
+              </div>
+              <h5 class="fw-semibold mb-3">Belanja Aman</h5>
+              <p class="text-muted">Platform terpercaya dengan sistem keamanan berlapis dan garansi uang kembali</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-card h-100 p-4 text-center">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-qr-code text-success"></i>
+              </div>
+              <h5 class="fw-semibold mb-3">Pembayaran QRIS</h5>
+              <p class="text-muted">Pembayaran instan dan mudah dengan teknologi QRIS dari semua bank dan e-wallet</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-card h-100 p-4 text-center">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-people text-warning"></i>
+              </div>
+              <h5 class="fw-semibold mb-3">Dukung Pengrajin</h5>
+              <p class="text-muted">Setiap pembelian langsung mendukung kesejahteraan pengrajin lokal Indonesia</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-card h-100 p-4 text-center">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-phone text-info"></i>
+              </div>
+              <h5 class="fw-semibold mb-3">Dashboard Modern</h5>
+              <p class="text-muted">Kelola toko online dan offline terintegrasi di mana saja, kapan saja</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center mb-5">
+            <h2 class="display-5 fw-bold text-primary mb-3">Produk Pilihan</h2>
+            <p class="lead text-muted">Koleksi kerajinan eceng gondok terbaik dari pengrajin seluruh Indonesia</p>
+          </div>
+        </div>
+        
+        <!-- Category Filter -->
+        <div class="row mb-5">
+          <div class="col-12">
+            <div class="category-filter d-flex justify-content-center flex-wrap gap-2">
+              <button class="btn btn-outline-primary category-btn active" data-category="all">Semua</button>
+              <button class="btn btn-outline-primary category-btn" data-category="bags">Tas</button>
+              <button class="btn btn-outline-primary category-btn" data-category="hats">Topi</button>
+              <button class="btn btn-outline-primary category-btn" data-category="baskets">Keranjang</button>
+              <button class="btn btn-outline-primary category-btn" data-category="decor">Dekorasi</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Products Grid -->
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-card h-100" data-category="bags">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop" alt="Tas Anyam Premium" class="img-fluid">
+                <div class="product-overlay">
+                  <button class="btn btn-light btn-sm">
+                    <i class="bi bi-eye me-1"></i>Lihat Detail
+                  </button>
+                </div>
+                <div class="product-badge">
+                  <span class="badge bg-success">Premium</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title fw-semibold">Tas Anyam Premium</h5>
+                <p class="card-text text-muted small">
+                  <i class="bi bi-person me-1"></i>Ibu Sari - Yogyakarta
+                </p>
+                <div class="d-flex align-items-center mb-2">
+                  <div class="stars me-2">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                  </div>
+                  <small class="text-muted">(4.8)</small>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="h5 text-success mb-0">Rp 150.000</span>
+                  <button class="btn btn-primary btn-sm add-to-cart">
+                    <i class="bi bi-cart-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="product-card h-100" data-category="hats">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1529958030586-3aae4ca485ff?w=300&h=300&fit=crop" alt="Topi Anyam Tradisional" class="img-fluid">
+                <div class="product-overlay">
+                  <button class="btn btn-light btn-sm">
+                    <i class="bi bi-eye me-1"></i>Lihat Detail
+                  </button>
+                </div>
+                <div class="product-badge">
+                  <span class="badge bg-warning text-dark">Populer</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title fw-semibold">Topi Anyam Tradisional</h5>
+                <p class="card-text text-muted small">
+                  <i class="bi bi-person me-1"></i>Pak Budi - Jawa Tengah
+                </p>
+                <div class="d-flex align-items-center mb-2">
+                  <div class="stars me-2">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                  </div>
+                  <small class="text-muted">(4.9)</small>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="h5 text-success mb-0">Rp 75.000</span>
+                  <button class="btn btn-primary btn-sm add-to-cart">
+                    <i class="bi bi-cart-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="product-card h-100" data-category="baskets">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=300&fit=crop" alt="Keranjang Serbaguna" class="img-fluid">
+                <div class="product-overlay">
+                  <button class="btn btn-light btn-sm">
+                    <i class="bi bi-eye me-1"></i>Lihat Detail
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title fw-semibold">Keranjang Serbaguna</h5>
+                <p class="card-text text-muted small">
+                  <i class="bi bi-person me-1"></i>Ibu Tini - Kalimantan
+                </p>
+                <div class="d-flex align-items-center mb-2">
+                  <div class="stars me-2">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star text-warning"></i>
+                  </div>
+                  <small class="text-muted">(4.7)</small>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="h5 text-success mb-0">Rp 120.000</span>
+                  <button class="btn btn-primary btn-sm add-to-cart">
+                    <i class="bi bi-cart-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="product-card h-100" data-category="decor">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=300&fit=crop" alt="Vas Dekorasi Modern" class="img-fluid">
+                <div class="product-overlay">
+                  <button class="btn btn-light btn-sm">
+                    <i class="bi bi-eye me-1"></i>Lihat Detail
+                  </button>
+                </div>
+                <div class="product-badge">
+                  <span class="badge bg-info">Baru</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title fw-semibold">Vas Dekorasi Modern</h5>
+                <p class="card-text text-muted small">
+                  <i class="bi bi-person me-1"></i>Ibu Maya - Bali
+                </p>
+                <div class="d-flex align-items-center mb-2">
+                  <div class="stars me-2">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                  </div>
+                  <small class="text-muted">(4.8)</small>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="h5 text-success mb-0">Rp 200.000</span>
+                  <button class="btn btn-primary btn-sm add-to-cart">
+                    <i class="bi bi-cart-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Artisans Section -->
+    <section id="artisans" class="artisans-section py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center mb-5">
+            <h2 class="display-5 fw-bold text-primary mb-3">Cerita Para Pengrajin</h2>
+            <p class="lead text-muted">Kenali lebih dekat para pengrajin berbakat di balik setiap karya</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="artisan-card p-4 h-100">
+              <div class="row align-items-center">
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                  <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=200&h=200&fit=crop&crop=face" alt="Ibu Sari" class="artisan-image">
+                  <div class="artisan-rating mt-2">
+                    <div class="stars">
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                    <small class="text-muted">4.9 Rating</small>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <h5 class="fw-semibold text-primary">Ibu Sari</h5>
+                  <p class="text-muted mb-2">
+                    <i class="bi bi-geo-alt me-1"></i>Yogyakarta
+                  </p>
+                  <p class="mb-3">"Sudah 15 tahun saya menganyam eceng gondok. Berkat Nusantara Eceng, karya saya bisa dikenal hingga seluruh Indonesia."</p>
+                  <div class="artisan-stats">
+                    <span class="badge bg-success me-2">200+ Produk Terjual</span>
+                    <span class="badge bg-primary">15 Tahun Pengalaman</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="artisan-card p-4 h-100">
+              <div class="row align-items-center">
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" alt="Pak Budi" class="artisan-image">
+                  <div class="artisan-rating mt-2">
+                    <div class="stars">
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star text-warning"></i>
+                    </div>
+                    <small class="text-muted">4.8 Rating</small>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <h5 class="fw-semibold text-primary">Pak Budi</h5>
+                  <p class="text-muted mb-2">
+                    <i class="bi bi-geo-alt me-1"></i>Jawa Tengah
+                  </p>
+                  <p class="mb-3">"Platform ini memudahkan saya mengelola pesanan online dan offline. Penghasilan meningkat 3 kali lipat!"</p>
+                  <div class="artisan-stats">
+                    <span class="badge bg-success me-2">350+ Produk Terjual</span>
+                    <span class="badge bg-warning text-dark">Mitra Terbaik</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="display-5 fw-bold text-white mb-4">Bergabunglah dengan Gerakan Pelestarian Budaya</h2>
+            <p class="lead text-white-50 mb-4">Majukan pengrajin lokal, lestarikan budaya bangsa, dan dapatkan produk berkualitas tinggi</p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+              <button class="btn btn-success btn-lg" onclick="scrollToSection('products')">
+                <i class="bi bi-bag-check me-2"></i>Mulai Belanja
+              </button>
+              <button class="btn btn-outline-light btn-lg">
+                <i class="bi bi-person-plus me-2"></i>Daftar Sebagai Pengrajin
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-brand mb-3">
+              <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=60&h=60&fit=crop&crop=center" alt="Nusantara Eceng Logo" class="footer-logo me-2">
+              <span class="h5 fw-bold text-white">Nusantara Eceng</span>
+            </div>
+            <p class="text-light">Platform marketplace terpercaya untuk kerajinan eceng gondok Indonesia.</p>
+            <div class="social-links">
+              <a href="#" class="btn btn-outline-light btn-sm me-2">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="#" class="btn btn-outline-light btn-sm me-2">
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a href="#" class="btn btn-outline-light btn-sm">
+                <i class="bi bi-twitter"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <h6 class="fw-semibold text-white mb-3">Produk</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-light text-decoration-none">Tas Anyam</a></li>
+              <li><a href="#" class="text-light text-decoration-none">Topi Tradisional</a></li>
+              <li><a href="#" class="text-light text-decoration-none">Keranjang</a></li>
+              <li><a href="#" class="text-light text-decoration-none">Dekorasi Rumah</a></li>
+            </ul>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <h6 class="fw-semibold text-white mb-3">Layanan</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-light text-decoration-none">Panduan Belanja</a></li>
+              <li><a href="#" class="text-light text-decoration-none">Cara Pembayaran</a></li>
+              <li><a href="#" class="text-light text-decoration-none">Kebijakan Retur</a></li>
+              <li><a href="#" class="text-light text-decoration-none">Pusat Bantuan</a></li>
+            </ul>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <h6 class="fw-semibold text-white mb-3">Hubungi Kami</h6>
+            <ul class="list-unstyled">
+              <li class="text-light mb-2">
+                <i class="bi bi-envelope me-2"></i>info@nusantaraeceng.com
+              </li>
+              <li class="text-light mb-2">
+                <i class="bi bi-phone me-2"></i>+62 21 1234 5678
+              </li>
+              <li class="text-light">
+                <i class="bi bi-geo-alt me-2"></i>Jakarta, Indonesia
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <hr class="my-4" style="color: rgba(255,255,255,0.2);">
+        
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <p class="text-light mb-0">&copy; 2025 Nusantara Eceng. Hak cipta dilindungi undang-undang.</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <span class="text-light">Made with ❤️ for Indonesia</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fw-semibold">
+              <i class="bi bi-cart3 me-2"></i>Keranjang Belanja
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div id="cartItems" class="cart-items">
+              <div class="text-center py-5">
+                <i class="bi bi-cart-x display-4 text-muted"></i>
+                <p class="text-muted mt-2">Keranjang Anda masih kosong</p>
+              </div>
+            </div>
+            <div class="cart-total mt-3 pt-3 border-top">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="h5 fw-semibold">Total:</span>
+                <span class="h4 fw-bold text-success">Rp <span id="cartTotal">0</span></span>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Lanjut Belanja</button>
+            <button type="button" class="btn btn-primary" id="checkout">
+              <i class="bi bi-qr-code me-2"></i>Checkout dengan QRIS
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="position-fixed top-0 start-0 w-100 h-100 d-none" style="background: rgba(255,255,255,0.9); z-index: 9999;">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+    </script>
+    <!-- Custom JS -->
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
